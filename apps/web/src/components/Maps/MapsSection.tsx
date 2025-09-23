@@ -4,7 +4,8 @@ import dynamic from "next/dynamic"; // ✅ Untuk dynamic import
 import SearchBar from "./SearchBar";
 import TileSelector from "./TileSelector";
 import MobileHint from "./MobileHint";
-import { overlayOptions, OverlayOption } from "./overlayOptions";
+import { overlayOptions } from "./overlayOptions";
+import type { OverlayOption } from "./overlayOptions";
 
 // ✅ Import MapWrapper hanya di client (hindari SSR error karena Leaflet)
 const MapWrapper = dynamic(() => import("./MapWrapper"), {
