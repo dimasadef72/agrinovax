@@ -154,7 +154,7 @@ const SignIn: React.FC = () => {
               <label htmlFor="Option1" className="inline-flex items-center gap-2">
                 <input
                   type="checkbox"
-                  className="size-5 rounded border-gray-300 shadow-sm"
+                  className="size-5 rounded border shadow-sm bg-white border-gray-300 checked:bg-[#567666] checked:border-[#567666] focus:ring-2 focus:ring-[#567666] focus:ring-offset-0 appearance-none relative after:content-['✓'] after:absolute after:inset-0 after:flex after:items-center after:justify-center after:text-white after:text-sm after:font-bold after:opacity-0 checked:after:opacity-100"
                   id="Option1"
                 />
                 <span className="text-sm text-gray-500">Remember Me</span>
