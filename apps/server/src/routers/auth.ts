@@ -49,6 +49,7 @@ export const authRouter = {
 						fullName: users.fullName,
 						email: users.email,
 						role: users.role,
+						createdAt: users.createdAt,
 					});
 
 				return {
@@ -90,12 +91,14 @@ export const authRouter = {
 						fullName: user[0].fullName,
 						email: user[0].email,
 						role: user[0].role,
+						createdAt: user[0].createdAt,
 					},
 				};
 			} catch (error) {
 				throw new Error(error instanceof Error ? error.message : "Sign in failed");
 			}
 		}),
+
 
 	signOut: publicProcedure.handler(async () => {
 		return {

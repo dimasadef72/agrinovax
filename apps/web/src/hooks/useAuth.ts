@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 import { apiService } from "@/lib/api";
 
 interface User {
-  userId: string;
+  id: number;
   email: string;
   role: string;
   fullName: string;
-  createdAt: string;
+  createdAt?: string;
+  created_at?: string; // Database field name
 }
 
 export const useAuth = () => {

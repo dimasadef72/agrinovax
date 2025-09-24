@@ -178,7 +178,7 @@ const AccountSection: React.FC = () => {
                   Member Since
                 </label>
                 <div className="p-3 bg-gray-50 border border-gray-200 rounded-lg">
-                  <p className="text-gray-900">{formatDate(user.createdAt)}</p>
+                  <p className="text-gray-900">{formatDate(user.createdAt || (user as any).created_at)}</p>
                 </div>
               </div>
             </div>

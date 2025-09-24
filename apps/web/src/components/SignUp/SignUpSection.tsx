@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import LogoCard from "../ui/LogoCard";
 import Toast from "../ui/Toast";
-import { api } from "@/lib/api";
+import { client } from "@/utils/orpc";
 
 const SignUp: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -79,15 +79,13 @@ const SignUp: React.FC = () => {
 
     setIsSubmitting(true);
     try {
-      const result = await api.auth.signUp({
+      const result = await client.auth.signUp({
         name: formData.fullName,
         email: formData.email,
         password: formData.password,
       });
 
-      // Handle oRPC response format
-      const responseData = result.json || result;
-      if (responseData.success) {
+      if (result.success) {
         showToast(
           "Account created successfully! Redirecting to sign in...",
           "success"

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import CreateAccountButton from './CreateAccountButton'
 import LogoCard from '../ui/LogoCard'
 import Toast from '../ui/Toast'
-import { api } from '@/lib/api'
+import { client } from '@/utils/orpc'
 
 const SignIn: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -45,14 +45,12 @@ const SignIn: React.FC = () => {
     setIsSubmitting(true)
     try {
       console.log('Attempting login with:', formData)
-      const result = await api.auth.signIn(formData)
+      const result = await client.auth.signIn(formData)
       console.log('Login result:', result)
       
-      // Handle oRPC response format
-      const responseData = result.json || result
-      if (responseData.success && responseData.user) {
+      if (result.success && result.user) {
         // Store user data and redirect
-        localStorage.setItem('user', JSON.stringify(responseData.user))
+        localStorage.setItem('user', JSON.stringify(result.user))
         showToast('Login successful! Redirecting...', 'success')
         setTimeout(() => {
           window.location.href = '/'
@@ -60,10 +58,27 @@ const SignIn: React.FC = () => {
       }
     } catch (error) {
       console.error('Login error:', error)
+      
+      let errorMessage = 'Login failed. Please try again.'
+      
       if (error instanceof Error) {
-        setError(error.message)
-        showToast(error.message, 'error')
+        // Map server errors to user-friendly messages
+        if (error.message.includes('Internal server error') || 
+            error.message.includes('Invalid credentials') ||
+            error.message.includes('User not found') ||
+            error.message.includes('Invalid password')) {
+          errorMessage = 'Invalid email or password. Please check your credentials and try again.'
+        } else if (error.message.includes('Network')) {
+          errorMessage = 'Connection error. Please check your internet connection.'
+        } else if (error.message.includes('Too many requests')) {
+          errorMessage = 'Too many login attempts. Please wait a moment and try again.'
+        } else {
+          errorMessage = error.message
+        }
       }
+      
+      setError(errorMessage)
+      showToast(errorMessage, 'error')
     } finally {
       setIsSubmitting(false)
     }
