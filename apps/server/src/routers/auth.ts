@@ -99,6 +99,35 @@ export const authRouter = {
 			}
 		}),
 
+	getCurrentUser: publicProcedure
+		.input(z.object({ userId: z.number() }))
+		.handler(async ({ input }) => {
+			try {
+				// Get fresh user data from database
+				const user = await db
+					.select()
+					.from(users)
+					.where(eq(users.id, input.userId))
+					.limit(1);
+
+				if (user.length === 0) {
+					throw new Error("User not found");
+				}
+
+				return {
+					success: true,
+					user: {
+						id: user[0].id,
+						fullName: user[0].fullName,
+						email: user[0].email,
+						role: user[0].role,
+						createdAt: user[0].createdAt,
+					},
+				};
+			} catch (error) {
+				throw new Error(error instanceof Error ? error.message : "Failed to get user");
+			}
+		}),
 
 	signOut: publicProcedure.handler(async () => {
 		return {
