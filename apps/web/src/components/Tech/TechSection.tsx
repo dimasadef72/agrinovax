@@ -26,7 +26,9 @@ const TechSection: React.FC = () => {
               Drone DJI Mavic 3 Multispectral
             </h3>
             <p className="mt-2 text-sm text-gray-500 text-justify">
-              Drone digunakan untuk mengambil citra udara lahan pertanian secara menyeluruh. Proses ini menggantikan metode pengukuran manual yang lambat dan tidak akurat.
+              Drone digunakan untuk mengambil citra udara lahan pertanian secara
+              menyeluruh. Proses ini menggantikan metode pengukuran manual yang
+              lambat dan tidak akurat.
             </p>
           </div>
         </article>
@@ -43,87 +45,96 @@ const TechSection: React.FC = () => {
               Agisoft Metashape
             </h3>
             <p className="mt-2 text-sm text-gray-500 text-justify">
-              Agisoft digunakan untuk menyusun citra udara hasil drone melalui proses photo alignment, sehingga menghasilkan peta ortomosaic dengan referensi geospasial yang akurat.
+              Agisoft digunakan untuk menyusun citra udara hasil drone melalui
+              proses photo alignment, sehingga menghasilkan peta ortomosaic
+              dengan referensi geospasial yang akurat.
             </p>
           </div>
         </article>
 
         {/* Card 3 */}
         <article className="w-full max-w-[300px] h-auto overflow-hidden rounded-xl shadow-lg shadow-gray-500/40 transition hover:shadow-2xl hover:shadow-gray-700/60 bg-white">
-        <div className="p-4 sm:p-6">
+          <div className="p-4 sm:p-6">
             <div className="flex justify-center mb-4">
-            <img
+              <img
                 alt="Geotiff"
                 src="/geotiff.png"
                 className="h-40 w-auto object-contain"
-            />
+              />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 text-center">
-            Geographic Tagged Image File Format (TIFF)
+              Geographic Tagged Image File Format (TIFF)
             </h3>
             <p className="mt-2 text-sm text-gray-500 text-justify">
-            File GeoTIFF menyimpan peta hasil olahan Agisoft beserta data spasialnya. Format ini memungkinkan pengukuran luas berdasarkan jumlah piksel dengan skala nyata.
+              File GeoTIFF menyimpan peta hasil olahan Agisoft beserta data
+              spasialnya. Format ini memungkinkan pengukuran luas berdasarkan
+              jumlah piksel dengan skala nyata.
             </p>
-        </div>
+          </div>
         </article>
 
         {/* Card 4 */}
         <article className="w-full max-w-[300px] h-auto overflow-hidden rounded-xl shadow-lg shadow-gray-500/40 transition hover:shadow-2xl hover:shadow-gray-700/60 bg-white">
-        <div className="p-4 sm:p-6">
+          <div className="p-4 sm:p-6">
             <div className="flex justify-center mb-4">
-            <img
+              <img
                 alt="yolov5seg"
                 src="/yoloseg.png"
                 className="h-40 w-auto object-contain"
-            />
+              />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 text-center">
-            YOLOv5 Instance Segmentation
+              YOLOv5 Instance Segmentation
             </h3>
             <p className="mt-2 text-sm text-gray-500 text-justify">
-            YOLOv5 digunakan untuk mendeteksi dan melakukan segmentasi tiap area sawah dalam citra ortomosaic. Proses ini menghasilkan mask individual yang memisahkan setiap petak sawah.
+              YOLOv5 digunakan untuk mendeteksi dan melakukan segmentasi tiap
+              area sawah dalam citra ortomosaic. Proses ini menghasilkan mask
+              individual yang memisahkan setiap petak sawah.
             </p>
-        </div>
+          </div>
         </article>
-
       </div>
 
       {/* Baris Kedua: 3 Card Tengah */}
       <div className="flex flex-wrap justify-center gap-10 mt-10">
-       {/* Card 5 */}
+        {/* Card 5 */}
         <article className="w-full max-w-[300px] h-auto overflow-hidden rounded-xl shadow-lg shadow-gray-500/40 transition hover:shadow-2xl hover:shadow-gray-700/60 bg-white">
-        <div className="p-4 sm:p-6">
+          <div className="p-4 sm:p-6">
             <div className="flex justify-center mb-4">
-            <img
+              <img
                 alt="piksel"
                 src="/piksel.png"
                 className="h-40 w-auto object-contain"
-            />
+              />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 text-center">
-            Pixel Area Calculation
+              Pixel Area Calculation
             </h3>
             <p className="mt-2 text-sm text-gray-500 text-justify">
-            Luas lahan dihitung dari jumlah piksel tiap mask hasil YOLOv5 dengan acuan resolusi spasial GeoTIFF. Metode ini menghilangkan kebutuhan pengukuran manual.
+              Luas lahan dihitung dari jumlah piksel tiap mask hasil YOLOv5
+              dengan acuan resolusi spasial GeoTIFF. Metode ini menghilangkan
+              kebutuhan pengukuran manual.
             </p>
-        </div>
+          </div>
         </article>
 
         {/* Card 6 */}
         <article className="w-full max-w-[300px] h-auto overflow-hidden rounded-xl shadow-lg shadow-gray-500/40 transition hover:shadow-2xl hover:shadow-gray-700/60 bg-white">
           <div className="p-4 sm:p-6">
             <div className="flex justify-center mb-4">
-            <img
-              alt="leaflet"
-              src="/leaflet.svg"
-              className="h-40 w-auto object-contain"
-            />
+              <img
+                alt="leaflet"
+                src="/leaflet.svg"
+                className="h-40 w-auto object-contain"
+              />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 text-center">
               Leaflet.js
             </h3>
             <p className="mt-2 text-sm text-gray-500 text-justify">
-              Leaflet digunakan untuk menampilkan mask sawah dalam bentuk peta interaktif di platform web. Pengguna dapat mengeklik tiap area untuk melihat data detail.
+              Leaflet digunakan untuk menampilkan mask sawah dalam bentuk peta
+              interaktif di platform web. Pengguna dapat mengeklik tiap area
+              untuk melihat data detail.
             </p>
           </div>
         </article>
@@ -140,7 +151,9 @@ const TechSection: React.FC = () => {
               AES Data Secure
             </h3>
             <p className="mt-2 text-sm text-gray-500 text-justify">
-              Sistem enkripsi AES diterapkan pada data bantuan petani yang diubah oleh admin. Data akan didekripsi saat dibaca oleh pengguna lain, menjaga keamanan dan privasi informasi.
+              Sistem enkripsi AES diterapkan pada data bantuan petani yang
+              diubah oleh admin. Data akan didekripsi saat dibaca oleh pengguna
+              lain, menjaga keamanan dan privasi informasi.
             </p>
           </div>
         </article>
