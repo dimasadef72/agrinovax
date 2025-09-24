@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../index.css";
+import "leaflet/dist/leaflet.css";
 import Providers from "@/components/providers";
 import Header from "@/components/Header/HeaderSection";
 
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "agrinovax",
+  title: "AgriNovaX",
   description: "agrinovax",
 };
 

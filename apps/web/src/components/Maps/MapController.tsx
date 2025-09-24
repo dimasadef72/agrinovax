@@ -1,14 +1,18 @@
-'use client';
-import { useEffect, useRef } from 'react';
-import { useMap } from 'react-leaflet';
+"use client";
+import { useEffect, useRef } from "react";
+import { useMap } from "react-leaflet";
 
 interface MapControllerProps {
   center: [number, number];
   zoom: number;
-  selectedLocation?: { lat: number; lng: number } | null;
+  selectedLocation?: { lat: number; lon: number } | null;
 }
 
-const MapController: React.FC<MapControllerProps> = ({ center, zoom, selectedLocation }) => {
+const MapController: React.FC<MapControllerProps> = ({
+  center,
+  zoom,
+  selectedLocation,
+}) => {
   const map = useMap();
   const isInitialized = useRef(false);
 

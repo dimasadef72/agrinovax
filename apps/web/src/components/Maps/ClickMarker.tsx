@@ -1,7 +1,7 @@
-'use client';
-import React, { useState, useRef, useEffect } from 'react';
-import { Marker, Popup, useMapEvents } from 'react-leaflet';
-import L from 'leaflet';
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import { Marker, Popup, useMapEvents } from "react-leaflet";
+import L from "leaflet";
 
 const ClickMarker: React.FC = () => {
   const [position, setPosition] = useState<[number, number] | null>(null);
@@ -12,17 +12,17 @@ const ClickMarker: React.FC = () => {
     click: async (e) => {
       const { lat, lng } = e.latlng;
       setPosition([lat, lng]);
-      setAddress('Mengambil alamat...');
+      setAddress("Mengambil alamat...");
 
       try {
         const res = await fetch(
           `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
         );
         const data = await res.json();
-        setAddress(data.display_name || 'Alamat tidak ditemukan');
+        setAddress(data.display_name || "Alamat tidak ditemukan");
       } catch (err) {
-        console.error('Reverse geocoding gagal:', err);
-        setAddress('Gagal mengambil alamat');
+        console.error("Reverse geocoding gagal:", err);
+        setAddress("Gagal mengambil alamat");
       }
     },
   });
@@ -47,9 +47,7 @@ const ClickMarker: React.FC = () => {
           </div>
           <div className="grid grid-cols-[80px_1fr] gap-x-2">
             <span className="text-gray-500">Lokasi</span>
-            <span className="text-gray-800 break-words">
-              {address}
-            </span>
+            <span className="text-gray-800 break-words">{address}</span>
           </div>
         </div>
       </Popup>

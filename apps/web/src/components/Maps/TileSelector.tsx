@@ -1,11 +1,11 @@
-'use client';
-import React, { useState } from 'react';
-import type { TileOption } from './MapsSection';
+"use client";
+import React, { useState } from "react";
+import type { TileOption } from "./MapsSection";
 
 interface Props {
   selectedTile: string;
   tileOptions: Record<string, TileOption>;
-  onChange: (value: 'default' | 'satellite' | 'terrain') => void;
+  onChange: (value: "default" | "satellite" | "terrain") => void;
   selectedOverlayKey: string | null; // ✅ ganti dari showOverlay
   onSelectOverlay: (key: string | null) => void;
 }
@@ -20,10 +20,10 @@ const TileSelector: React.FC<Props> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const previewImages: Record<string, string> = {
-    default: '/map-default.jpg',
-    satellite: '/map-satellite.jpg',
-    terrain: '/map-terrain.jpg',
-    yolo: '/map-yolo.jpg',
+    default: "/map-default.jpg",
+    satellite: "/map-satellite.jpg",
+    terrain: "/map-terrain.jpg",
+    yolo: "/map-yolo.jpg",
   };
 
   const handleOverlayClick = (key: string) => {
@@ -53,7 +53,9 @@ const TileSelector: React.FC<Props> = ({
                     key={key}
                     onClick={() => onChange(key as any)}
                     className={`flex flex-col items-center cursor-pointer rounded-xl p-1 ${
-                      isActive ? 'border-2 border-cyan-500' : 'border border-transparent'
+                      isActive
+                        ? "border-2 border-cyan-500"
+                        : "border border-transparent"
                     } hover:bg-gray-100 transition`}
                   >
                     <img
@@ -63,7 +65,9 @@ const TileSelector: React.FC<Props> = ({
                     />
                     <span
                       className={`mt-1 text-xs ${
-                        isActive ? 'text-cyan-500 font-semibold' : 'text-gray-700'
+                        isActive
+                          ? "text-cyan-500 font-semibold"
+                          : "text-gray-700"
                       }`}
                     >
                       {value.name}
@@ -79,23 +83,23 @@ const TileSelector: React.FC<Props> = ({
             <div className="text-sm font-semibold mb-2">Image Overlay</div>
             <div className="grid grid-cols-3 gap-2">
               <div
-                onClick={() => handleOverlayClick('yolo')}
+                onClick={() => handleOverlayClick("yolo")}
                 className={`flex flex-col items-center cursor-pointer rounded-xl p-1 ${
-                  selectedOverlayKey === 'yolo'
-                    ? 'border-2 border-cyan-500'
-                    : 'border border-transparent'
+                  selectedOverlayKey === "yolo"
+                    ? "border-2 border-cyan-500"
+                    : "border border-transparent"
                 } hover:bg-gray-100 transition`}
               >
                 <img
-                  src={previewImages['yolo']}
+                  src={previewImages["yolo"]}
                   alt="Yolo"
                   className="w-16 h-16 rounded-lg object-cover"
                 />
                 <span
                   className={`mt-1 text-xs ${
-                    selectedOverlayKey === 'yolo'
-                      ? 'text-cyan-500 font-semibold'
-                      : 'text-gray-700'
+                    selectedOverlayKey === "yolo"
+                      ? "text-cyan-500 font-semibold"
+                      : "text-gray-700"
                   }`}
                 >
                   Yolo

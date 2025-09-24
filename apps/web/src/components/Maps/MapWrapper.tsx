@@ -23,11 +23,6 @@ interface SearchResult {
   display_name: string;
 }
 
-type LocationCoords = {
-  lat: number;
-  lng: number;
-} | null;
-
 interface MapWrapperProps {
   center: [number, number];
   zoom: number;
@@ -157,7 +152,7 @@ const MapWrapper: React.FC<MapWrapperProps> = ({
       <MapController
         center={center}
         zoom={zoom}
-        selectedLocation={selectedLocation ? { lat: selectedLocation.lat, lng: selectedLocation.lon } : null}
+        selectedLocation={selectedLocation}
       />
       <SearchLocationController
         selectedLocation={selectedLocation}
